@@ -1,6 +1,8 @@
-def main() -> None:
-    print("app template ready")
+from fastapi import FastAPI
+
+app = FastAPI(title="First API", version="0.1.0")
 
 
-if __name__ == "__main__":
-    main()
+@app.get("/health")
+def health() -> dict[str, str]:
+    return {"status": "ok"}
